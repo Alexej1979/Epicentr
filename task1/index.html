@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <!--
 Task #1 for Epicentr. Build sample webpage
+Toodo: 
+       
+       
+        3) крутилка на ожидании ответа сервера
+        4) разукраска текста по макету
+      
+        
 -->
 <html>
     
@@ -9,186 +16,84 @@ Task #1 for Epicentr. Build sample webpage
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
-        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />	   
+		<link rel="stylesheet" type="text/css" href="css/ns-default.css" />
+		<link rel="stylesheet" type="text/css" href="css/ns-style-bar.css" />
+        <link rel="stylesheet" type="text/css" href="css/task1.css" />
+
+        
    
     
-    <style>
-        body
-        {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            background-color: lightgray;
-            background-color: white;
-        }
-        
-        .row-fluid
-        {
-            padding: 1%;
-          //  background-color: white;
-         
-        }
-        .col2, .col1
-        {
-          background-color: white;
-          height: 600px;
-        }
-        
-        .col2
-        {
-            padding-left: 1%;
-        }
-        
-     
-        .circleButton
-        {
-            display:block;
-            width:50px;
-            height:50px;
-            border-radius:66px;
-            border:1px solid #000;
-            font-size:20px;            
-            color:#000;
-            line-height:50px;
-            text-align:center;
-            text-decoration:none;
-            text-shadow: 0 1px 0 #000;
-            background:white;
-            cursor: pointer;
-        }
-        .circleButton:hover
-        {
-           border:1px solid red;
-           color:red;
-           text-decoration:none;
-         //  background: cornsilk; 
-        }
-        
-        .button
-        {
-           position: absolute;
-            top:500px;
-        }
-        
-        .btn-lg
-        {
-           border-radius: 0 !important;
-           background-color: black;
-           color: white !important;;
-        }        
-         .btn-lg:hover
-         {
-            color: white !important;
-          
-         }         
-         .buttonAdd
-         {
-            position: absolute;
-            top:600px; 
-         }       
-    </style>
     
 
     
      </head>   
      
-    <body>
+    <body>        
+       <div class = 'secondBody'>
         <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col1">
-                    <img class="col-md-12 img-responsive pull-left">
+             <div class = "borderRow">
+            <div class="row">
+                <div class=" text-center col-lg-6 col-md-6 col-sm-6 col-xs-12 col1">
+                    <img class="text-center getImg">
                 </div>
-                <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12 col2">
+                <div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12 col2">
                     <div class="brand"></div>
                     <div class="name"></div>
                     <div class="price"></div>
-                    <div class="descriptionTitle">
-                        <span>Описание товара</span> 
+                    
+                    
+                    <div>
+
+  <!-- Nav tabs -->
+  <div class="descriptionTitle">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристика</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Обзор</a></li>    
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="home">...</div>
+  <div role="tabpanel" class="tab-pane fade" id="profile">...</div>
+  <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
+</div>
+
+</div>
+                    
+                    
+                    
+                    
+                        
                     </div>
-                        <div class="description"></div>                    
+                                        
                     <div class="buttonTitle">
                         <span>Выбор товара</span> 
                     </div>    
                         <div class="button"></div>                           
                                        
                         <div class="buttonAdd">                            
-                           <button type="button" class="btn btn-lg">Добавить в корзину</button>
+                           <button type="button" class="btn btn-lg cash">Добавить в корзину</button>
                         </div> 
                     
                 </div>
             </div>
+                </div>
         </div>
+           </div>
     </body>
     
-    <script> 
-        $(function()
-            {
-                $.post("admin.php","","","json") 
-                  .done(function(a) 
-                      {
-                          var itemLength = 5;
-                          console.info(a);
-                          console.info(a.length);
-                          $(".img-responsive").attr("src",a[0].IMG);     
-                
-                         for (var i=0; i<itemLength; i++)
-                          {
-                              $(".button").append($("<a>")
-                                      .addClass("circleButton").data("item",i)
-                                      .css({"display":"inline-block","margin-left":"5px"})
-                                      .html(a[i].ID));
-                          };
-                          
-                           $(".brand").html(a[0].BRAND)
-                                  .css({"font-family":"'Montserrat': sans-serif","font-weight":"bold"});
-                          
-                          $(".name").html(a[0].NAME)
-                                  .css({"font-family":"'Montserrat': sans-serif","font-weight":"bold"})
-                          
-                          $(".price").html(a[0].PRICE+" грн.")
-                                  .css({"font-family":"'Montserrat': sans-serif","font-weight":"bold"})
-                          
-                          $(".description").html(a[0].DESCRIPTION)
-                                  .css({"font-family":"'Montserrat': sans-serif","font-weight":"bold"})
-                         
-                  
-                        //  font-family: "Montserrat", sans-serif;
-                          
-                          $(".circleButton").on("click",function()
-                          {
-                              var choose = $(this).data("item");
-                              
-                               $(".img-responsive").attr("src",a[choose].IMG);     
-                               
-                               $(".brand").html(a[choose].BRAND)
-                                  .css({"font-family":"'Montserrat': sans-serif","font-weight":"bold"});
-                          
-                          $(".name").html(a[choose].NAME)
-                                  .css({"font-family":"'Montserrat': sans-serif","font-weight":"bold"})
-                          
-                          $(".price").html(a[choose].PRICE)
-                                  .css({"font-family":"'Montserrat': sans-serif","font-weight":"bold"})
-                          
-                          $(".description").html(a[choose].DESCRIPTION)
-                                  .css({"font-family":"'Montserrat': sans-serif","font-weight":"bold"})
-                              
-                              
-                              
-                               /* if $(this).data("item") == "0"
-                                {
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="js/classie.js"></script>
+        <script src="js/modernizr.custom.js"></script>
+        <script src="js/notificationFx.js"></script>
+        <script src="js/spin.min.js"></script>
+        <script src="js/jquery.spin.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+           <script src="js/task1.js"></script>
 
-                                } */
-                          });
-                          
-                          
-
-                      }).fail(function()
-                      {                            
-                        console.log("нет связи с сервером"); 
-                      }); 
-            });
-  </script>
-    
 </html> 
 
 
