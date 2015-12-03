@@ -1,7 +1,7 @@
 var a;
 $(function()
     {
-        var opts =  // For round in waiting loads Ajax data
+      /*  var opts =  // For round in waiting loads Ajax data
                 {
                     lines: 15 // The number of lines to draw
                   , length: 27 // The length of each line
@@ -24,16 +24,16 @@ $(function()
                   , hwaccel: true // Whether to use hardware acceleration
                   , position: 'absolute' // Element positioning
                 };
-        var target = $('.container-fluid');
+        var target = $('.left-bg');
         var spinner = new Spinner(opts).spin(target.get(0));
         target.get(0).appendChild(spinner.el);
         $('body *').css("opacity",'0.5');
-        $(".spinner *, .spinner").css("opacity",'1');
+        $(".spinner *, .spinner").css("opacity",'1');*/
         
         $.post("admin.php","","","json")  //Ajax
             .done(function(a) 
             { 
-                spinner.stop();
+               // spinner.stop();
                 $('body *').css('opacity','1');
                 var itemLength = 5; // Numbers of item buttons 
                 if (a.length == 0 || $.isArray(a)==false) // Checked of a wrong Ajax data
@@ -91,7 +91,6 @@ $(function()
             };
         }).fail(function()
         {
-            spinner.stop(); 
             var notification = new NotificationFx // Error: No Server
             ({
                 wrapper : document.body,
