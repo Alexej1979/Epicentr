@@ -148,7 +148,7 @@
 			this.ntf.addEventListener( animEndEventName, onEndAnimationFn );
 		}
 		else {
-			onEndAnimationFn();
+			onEndAnimationFn.call(this.ntf);
 		}
 	}
 

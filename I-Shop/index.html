@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<!-- saved from url=(0057)http://the8guild.com/themes/html/bushido/v1.3/index.html# -->
+<!DOCTYPE html> 
+<!-- saved from url=(0057)# -->
 <html class=" js no-touch rgba backgroundsize borderimage borderradius csstransforms csstransforms3d csstransitions svg"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>Bushido - HTML5 E-Commerce Template</title>
@@ -8,13 +8,14 @@
 		<meta name="keywords" content="responsive html5 template, e-commerce, shop, bootstrap 3.0, css, jquery, flat, modern">
 		<meta name="author" content="8Guild">
     <!--Mobile Specific Meta Tag-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!--Favicon-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!--Favicon-->    
     <link rel="shortcut icon" href="http://the8guild.com/themes/html/bushido/v1.3/favicon.ico" type="image/x-icon">
     <link rel="icon" href="http://the8guild.com/themes/html/bushido/v1.3/favicon.ico" type="image/x-icon">
     <!--Master Slider Styles-->
-    <link href="css/masterslider.css" rel="stylesheet" media="screen">
-    <!--Styles-->
+    <link href="css/masterslider.css" rel="stylesheet" media="screen">  
+    <!--Styles-->    
     <link href="css/styles.css" rel="stylesheet" media="screen">
     <!--Color Scheme-->
     <link class="color-scheme" href="css/color-default.css" rel="stylesheet" media="screen">
@@ -24,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />	   
     <link rel="stylesheet" type="text/css" href="css/ns-default.css" />
     <link rel="stylesheet" type="text/css" href="css/ns-style-bar.css" />
+    <link rel="stylesheet" type="text/css" href="css/ns-style-growl.css" />
            
     <!--Modernizr-->
 		<script type="text/javascript" async="" src="js/dc.js"></script>
@@ -46,32 +48,13 @@
           var s = document.getElementsByTagName('script')[0];
           s.parentNode.insertBefore(ga, s);
       })();
-    </script>
+    </script>  
+    
+    
   </head>
 
   <!--Body-->
   <body>
-  
-  	<!--Color Switcher-->
-    <div class="color-switcher group animated">
-    	<div class="toggle"><i class="fa fa-cog"></i></div>
-    	<div class="color">
-      	<a class="current" style="background-image:url(img/default.png);" href="./Bushido_files/Bushido.html" data-color="default"></a>
-        <span>#2ba8db<br>#a3c756</span>
-      </div>
-    	<div class="color">
-      	<a style="background-image:url(img/scheme2.png);" href="./Bushido_files/Bushido.html" data-color="scheme2"></a>
-        <span>#a1b0ca<br>#e7807f</span>
-      </div>
-    	<div class="color">
-      	<a style="background-image:url(img/scheme3.png);" href="./Bushido_files/Bushido.html" data-color="scheme3"></a>
-        <span>#4bb5c1<br>#bfa995</span>
-      </div>
-    	<div class="color">
-      	<a style="background-image:url(img/scheme4.png);" href="./Bushido_files/Bushido.html" data-color="scheme4"></a>
-        <span>#73cbbe<br>#c7b07b</span>
-      </div>
-    </div><!--Color Switcher End--> 
   
   	<!--Login Modal-->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -82,9 +65,9 @@
             <h2>Login or <a href="http://the8guild.com/themes/html/bushido/v1.3/register.html">Register</a></h2>
             <p class="large">Use social accounts</p>
             <div class="social-login">
-            	<a class="facebook" href="./Bushido_files/Bushido.html"><i class="fa fa-facebook-square"></i></a>
-            	<a class="google" href="./Bushido_files/Bushido.html"><i class="fa fa-google-plus-square"></i></a>
-            	<a class="twitter" href="./Bushido_files/Bushido.html"><i class="fa fa-twitter-square"></i></a>
+            	<a class="facebook" href="#"><i class="fa fa-facebook-square"></i></a>
+            	<a class="google" href="#"><i class="fa fa-google-plus-square"></i></a>
+            	<a class="twitter" href="#"><i class="fa fa-twitter-square"></i></a>
             </div>
           </div>
           <div class="modal-body">
@@ -92,12 +75,12 @@
             <div class="form-group group">
             	<label for="log-email">Email</label>
               <input type="email" class="form-control" name="log-email" id="log-email" placeholder="Enter your email" required="">
-              <a class="help-link" href="./Bushido_files/Bushido.html">Forgot email?</a>
+              <a class="help-link" href="#">Forgot email?</a>
             </div>
             <div class="form-group group">
             	<label for="log-password">Password</label>
               <input type="text" class="form-control" name="log-password" id="log-password" placeholder="Enter your password" required="">
-              <a class="help-link" href="./Bushido_files/Bushido.html">Forgot password?</a>
+              <a class="help-link" href="#">Forgot password?</a>
             </div>
             <div class="checkbox">
               <label><div class="icheckbox" style="position: relative;"><input type="checkbox" name="remember" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Remember me</label>
@@ -129,21 +112,20 @@
     	<div class="right-bg"></div>
       
     	<div class="container">
-      	<a class="logo" href="http://the8guild.com/themes/html/bushido/v1.3/index.html"><img src="img/logo.png" alt="Bushido"></a>
+      	<a class="logo" href="#"><img src="img/logo_white_uk.png" alt="Эпицентр"></a>
         
         <!--Language / Currency Switchers-->
         <ul class="switchers">
-        	<li>$
+        	<li>&#8372
             <ul class="dropdown">
-              <li><a href="./Bushido_files/Bushido.html">€</a></li>
-              <li><a href="./Bushido_files/Bushido.html">$</a></li>
+              <li><a href="#">€</a></li>
+              <li><a href="#">$</a></li>
             </ul>
           </li>
-        	<li>En
+        	<li>укр
             <ul class="dropdown">
-              <li><a href="./Bushido_files/Bushido.html">En</a></li>
-              <li><a href="./Bushido_files/Bushido.html">Fr</a></li>
-              <li><a href="./Bushido_files/Bushido.html">Gr</a></li>
+              <li><a href="#">рус</a></li>
+              <li><a href="#">англ</a></li>              
             </ul>
           </li>
         </ul>
@@ -155,93 +137,82 @@
         <!--Main Menu-->
         <nav class="menu">
           <ul class="main">
-          	<li class="has-submenu"><a href="http://the8guild.com/themes/html/bushido/v1.3/index.html">Home<i class="fa fa-chevron-down"></i></a><!--Class "has-submenu" for proper highlighting and dropdown-->
+          	<li class="has-submenu"><a href="#">Меню<i class="fa fa-chevron-down"></i></a><!--Class "has-submenu" for proper highlighting and dropdown-->
             	<ul class="submenu">
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/index.html">Home - Slideshow</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/home-fullscreen.html">Home - Fullscreen Slider</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/home-showcase.html">Home - Product Showcase</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/home-categories.html">Home - Categories Slider</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/home-offers.html">Home - Special Offers</a></li>
+              	<li><a href="#">Меню</a></li>
+              	<li><a href="#">Меню</a></li>
+              	<li><a href="#">Меню</a></li>
+              	<li><a href="#">Меню</a></li>
+              	<li><a href="#">Меню</a></li>
               </ul>
             </li>
-          	<li class="has-submenu"><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-left-3cols.html">Shop<i class="fa fa-chevron-down"></i></a>
+          	<li class="has-submenu"><a href="#">Меню<i class="fa fa-chevron-down"></i></a>
             	<ul class="submenu">
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-left-3cols.html">Shop - Filters Left 3 Cols</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-left-2cols.html">Shop - Filters Left 2 Cols</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-right-3cols.html">Shop - Filters Right 3 Cols</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-right-2cols.html">Shop - Filters Right 2 Cols</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-no-filters-4cols.html">Shop - No Filters 4 Cols</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-no-filters-3cols.html">Shop - No Filters 3 Cols</a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-single-item-v1.html">Shop - Single Item Vers 1</a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-single-item-v2.html">Shop - Single Item Vers 2</a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/shopping-cart.html">Shopping Cart</a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/checkout.html">Checkout Page</a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/wishlist.html">Wishlist</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li> 
+                    <li><a href="#">Меню</a></li>                    
               </ul>
             </li>
-          	<li class="has-submenu"><a href="http://the8guild.com/themes/html/bushido/v1.3/blog-sidebar-right.html">Blog<i class="fa fa-chevron-down"></i></a>
+          	<li class="has-submenu"><a href="#">Меню<i class="fa fa-chevron-down"></i></a>
             	<ul class="submenu">
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/blog-sidebar-left.html">Blog - Sidebar Left</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/blog-sidebar-right.html">Blog - Sidebar Right</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/blog-single.html">Blog - Single Post</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li> 
+                    <li><a href="#">Меню</a></li> 
               </ul>
             </li>
-          	<li class="has-submenu"><a href="./Bushido_files/Bushido.html">Pages<span class="label">NEW</span><i class="fa fa-chevron-down"></i></a>
+          	<li class="has-submenu"><a href="#">Меню<span class="label">NEW</span><i class="fa fa-chevron-down"></i></a>
             	<ul class="submenu">
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/register.html">Login / Registration</a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/account-personal-info.html">Account: Personal Info<span class="label">NEW</span></a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/account-addresses.html">Account: Addresses<span class="label">NEW</span></a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/order-history.html">Orders History<span class="label">NEW</span></a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/order-tracking.html">Order Tracking<span class="label">NEW</span></a></li>
-                <li><a href="http://the8guild.com/themes/html/bushido/v1.3/delivery-info.html">Delivery Info<span class="label">NEW</span></a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/about.html">About Us</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/contacts.html">Contacts</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/coming-soon.html">Coming Soon</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/404.html">404 Page</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/support.html">Support Page</a></li>
-              	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/cs-page.html">Components &amp; Styles</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li> 
+                    <li><a href="#">Меню</a></li>                
               </ul>
             </li>
-          	<li class="hide-sm"><a href="http://the8guild.com/themes/html/bushido/v1.3/support.html">Support</a></li>
+          	<li class="hide-sm"><a href="№">Меню</a></li>
           </ul>
           <ul class="catalog">
-          	<li class="has-submenu"><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-left-3cols.html">Phones<i class="fa fa-chevron-down"></i></a>
+          	<li class="has-submenu"><a href="#">Меню<i class="fa fa-chevron-down"></i></a>
             	<ul class="submenu">
-              	<li><a href="./Bushido_files/Bushido.html">Nokia</a></li>
-              	<li class="has-submenu"><a href="./Bushido_files/Bushido.html">iPhone</a><!--Class "has-submenu" for adding carret and dropdown-->
+              	<li><a href="#">Меню</a></li>
+              	<li class="has-submenu"><a href="#">Меню</a><!--Class "has-submenu" for adding carret and dropdown-->
                 	<ul class="sub-submenu">
-                    <li><a href="./Bushido_files/Bushido.html">iPhone 4</a></li>
-                    <li><a href="./Bushido_files/Bushido.html">iPhone 4s</a></li>
-                    <li><a href="./Bushido_files/Bushido.html">iPhone 5c</a></li>
-                    <li><a href="./Bushido_files/Bushido.html">iPhone 5s</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
                   </ul>
                 </li>
-              	<li><a href="./Bushido_files/Bushido.html">HTC</a></li>
-              	<li class="has-submenu"><a href="./Bushido_files/Bushido.html">Samsung</a>
+              	<li><a href="#">Меню</a></li>
+              	<li class="has-submenu"><a href="#">Меню</a>
                 	<ul class="sub-submenu">
-                    <li><a href="./Bushido_files/Bushido.html">Galaxy Note 3</a></li>
-                    <li><a href="./Bushido_files/Bushido.html">Galaxy S5</a></li>
-                    <li><a href="./Bushido_files/Bushido.html">Galaxy S3 Neo</a></li>
-                    <li><a href="./Bushido_files/Bushido.html">Galaxy Gear</a></li>
-                    <li><a href="./Bushido_files/Bushido.html">Galaxy S Duos 2</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
+                    <li><a href="#">Меню</a></li>
                   </ul>
                 </li>
-              	<li><a href="./Bushido_files/Bushido.html">BlackBerry</a></li>
+              	<li><a href="#">Меню</a></li>
                 <li class="offer">
                 	<div class="col-1">
-                  	<p class="p-style2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  	<p class="p-style2">Описание товара</p>
                   </div>
                   <div class="col-2">
                   	<img src="img/menu-drodown-offer.jpg" alt="Special Offer">
-                  	<a class="btn btn-block" href="./Bushido_files/Bushido.html"><span>584$</span>Special offer</a>
+                  	<a class="btn btn-block" href="#"><span>584 грн</span>Супер цена</a>
                   </div>
                 </li>
               </ul>
             </li>
-          	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-left-3cols.html">Cameras</a></li>
-          	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-left-3cols.html">Personal computers</a></li>
-          	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-left-3cols.html">Gaming consoles</a></li>
-          	<li><a href="http://the8guild.com/themes/html/bushido/v1.3/shop-filters-left-3cols.html">TV sets</a></li>
+          	<li><a href="#">Меню</a></li>
+          	<li><a href="#">Меню</a></li>
+          	<li><a href="#">Меню</a></li>
+          	<li><a href="#">Меню</a></li>
           </ul>
         </nav>
         
@@ -249,47 +220,21 @@
         <div class="toolbar group">
           <button class="search-btn btn-outlined-invert"><i class="icon-magnifier"></i></button>
           <div class="middle-btns">
-            <a class="btn-outlined-invert" href="http://the8guild.com/themes/html/bushido/v1.3/wishlist.html"><i class="icon-heart"></i> <span>Wishlist</span></a>
-            <a class="login-btn btn-outlined-invert" href="./Bushido_files/Bushido.html" data-toggle="modal" data-target="#loginModal"><i class="icon-profile"></i> <span>Login</span></a>
+            <a class="btn-outlined-invert" href="#"><i class="icon-heart"></i> <span>Меню</span></a>
+            <a class="login-btn btn-outlined-invert" href="#" data-toggle="modal" data-target="#loginModal"><i class="icon-profile"></i> <span>Войти</span></a>
           </div>
           <div class="cart-btn">
-          	<a class="btn btn-outlined-invert" href="http://the8guild.com/themes/html/bushido/v1.3/shopping-cart.html"><i class="icon-shopping-cart-content"></i><span>3</span></a>
+          	<a class="btn btn-outlined-invert" href="#"><i class="icon-shopping-cart-content"></i><span>3</span></a>
             
             <!--Cart Dropdown-->
             <div class="cart-dropdown">
-              <span></span><!--Small rectangle to overlap Cart button-->
-              <div class="body">
-                <table>
-                  <tbody><tr>
-                    <th>Items</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                  </tr>
-                  <tr class="item">
-                    <td><div class="delete"></div><a href="./Bushido_files/Bushido.html">Good Joo-Joo Surfb</a></td>
-                    <td><input type="text" value="1"></td>
-                    <td class="price">89 005 $</td>
-                  </tr>
-                  <tr class="item">
-                    <td><div class="delete"></div><a href="./Bushido_files/Bushido.html">Good Joo-Joo Item</a></td>
-                    <td><input type="text" value="2"></td>
-                    <td class="price">4 300 $</td>
-                  </tr>
-                  <tr class="item">
-                    <td><div class="delete"></div><a href="./Bushido_files/Bushido.html">Good Joo-Joo</a></td>
-                    <td><input type="text" value="5"></td>
-                    <td class="price">84 $</td>
-                  </tr>
-                </tbody></table>
-              </div>
-              <div class="footer group">
-                <div class="buttons">
-                  <a class="btn btn-outlined-invert" href="http://the8guild.com/themes/html/bushido/v1.3/checkout.html"><i class="icon-download"></i>Checkout</a>
-                  <a class="btn btn-outlined-invert" href="http://the8guild.com/themes/html/bushido/v1.3/shopping-cart.html"><i class="icon-shopping-cart-content"></i>To cart</a>
-                </div>
-                <div class="total">93 389 $</div>
-              </div>
+                <div class="buildDataCart1">
+                    </div>
+                <div class="buildDataCart2">    
+                    </div>
+            
             </div><!--Cart Dropdown Close-->
+                        
           </div>
         </div><!--Toolbar Close-->
       </div>
@@ -305,28 +250,28 @@
         	<!--Slide 1-->
         	<div class="ms-slide" data-delay="7">
           	<div class="overlay"></div>
-          	<img src="masterslider/blank.gif" data-src="img/slide_1.jpg" alt="Nikon D4S"/>
-            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="top(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Nikon D4S</h2>
-            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="back(500)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="bottom(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1845$</span>Buy it now</a></div>
+          	<img src="img/blank.gif" data-src="img/slide_1.jpg" alt="Nikon D4S"/>
+            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="top(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">ТОВАР</h2>
+            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="back(500)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. </p>
+            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="bottom(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1845 грн</span>Купить сейчас</a></div>
           </div>
           
         	<!--Slide 2-->
         	<div class="ms-slide" data-delay="7">
             <span class="overlay"></span>
-          	<img src="masterslider/blank.gif" data-src="img/slide_2.jpg" alt="Nest"/>
-            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Nest</h2>
-            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="rotatebottom(30|90,long,br,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1640$</span>Buy it now</a></div>
+          	<img src="img/blank.gif" data-src="img/slide_2.jpg" alt="Nest"/>
+            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">ТОВАР</h2>
+            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. </p>
+            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="rotatebottom(30|90,long,br,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1640 грн</span>Купить сейчас</a></div>
           </div>
           
         	<!--Slide 3-->
         	<div class="ms-slide" data-delay="7">
           	<div class="overlay"></div>
-          	<img src="masterslider/blank.gif" data-src="img/slide_3.jpg" alt="3D Printer"/>
-            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">3D Printer</h2>
-            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="left(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>2500$</span>Buy it now</a></div>
+          	<img src="img/blank.gif" data-src="img/slide_3.jpg" alt="3D Printer"/>
+            <h2 style="width: 456px; left: 110px; top: 110px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">ТОВАР</h2>
+            <p style="width: 456px; left: 110px; top: 210px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. Информация о товаре. </p>
+            <div style="left: 110px; top: 300px;" class="ms-layer button" data-effect="left(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>2500 грн</span>Купить сейчас</a></div>
           </div>
           
         </div>
@@ -335,48 +280,48 @@
     	<!--Categories-->
       <section class="cat-tiles">
       	<div class="container">
-        	<h2>Browse categories</h2>
+        	<h2>Категории товаров</h2>
         	<div class="row">
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-            	<a href="./Bushido_files/Bushido.html">
+            	<a href="#">
                 <img src="img/1.jpg" alt="1">
-                <p>Category name</p>
+                <p>Категория товаров</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-            	<a href="./Bushido_files/Bushido.html">
+            	<a href="#">
                 <img src="img/2.jpg" alt="2">
-                <p>Category name</p>
+                <p>Категория товаров</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-            	<a href="./Bushido_files/Bushido.html">
+            	<a href="#">
                 <img src="img/3.jpg" alt="3">
-                <p>Category name</p>
+                <p>Категория товаров</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-            	<a href="./Bushido_files/Bushido.html">
+            	<a href="#">
                 <img src="img/4.jpg" alt="4">
-                <p>Category name</p>
+                <p>Категория товаров</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-            	<a href="./Bushido_files/Bushido.html">
+            	<a href="#">
                 <img src="img/5.jpg" alt="5">
-                <p>Category name</p>
+                <p>Категория товаров</p>
               </a>
             </div>
           	<!--Category-->
           	<div class="category col-lg-2 col-md-2 col-sm-4 col-xs-6">
-            	<a href="./Bushido_files/Bushido.html">
+            	<a href="#">
                 <img src="img/6.jpg" alt="5">
-                <p>Category name</p>
+                <p>Категория товаров</p>
               </a>
             </div>
           </div>
@@ -384,309 +329,22 @@
       </section><!--Categories Close-->
       
       <!--Catalog Grid-->
-      <section class="catalog-grid">
+      <section class="catalog-grid"> 
       	<div class="container">
-        	<h2 class="primary-color">Catalog picks</h2>
-          <div class="row">
+        	<h2 class="primary-color">Выбранная категория</h2>                
+       
+       
+          <div class="row item1">       
+              
+     
           	<!--Tile-->
-          	<div class="col-lg-3 col-md-4 col-sm-6">
-            	<div class="tile">
-              	<div class="badges">
-                	<span class="sale"></span>
-                </div>
-              	<div class="price-label">715,00 $</div>
-              	<a href="./Bushido_files/Bushido.html"><img src="img/1(1).jpg" alt="1"></a>
-                <div class="footer">
-                	<a href="./Bushido_files/Bushido.html">Nikon D5300</a>
-                  <span>by Pirate3d</span>
-                  <div class="tools">
-                  	<div class="rate">
-                    	<span class="active"></span>
-                      <span class="active"></span>
-                      <span class="active"></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="./Bushido_files/Bushido.html"><span>To cart</span><i class="icon-shopping-cart"></i></a>
-                    <!--Share Button-->
-                    <div class="share-btn">
-                    	<div class="hover-state">
-                      	<a class="fa fa-facebook-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-twitter-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-google-plus-square" href="./Bushido_files/Bushido.html"></a>
-                      </div>
-                      <i class="fa fa-share"></i>
-                    </div>
-                    <!--Add To Wishlist Button-->
-                    <a class="wishlist-btn" href="./Bushido_files/Bushido.html">
-                    	<div class="hover-state">Wishlist</div>
-                    	<i class="fa fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Tile-->
-          	<div class="col-lg-3 col-md-4 col-sm-6">
-            	<div class="tile">
-              	<div class="badges">
-                  <span class="out"></span>
-                </div>
-              	<div class="price-label">715,00 $</div>
-                <div class="price-label old-price">920,00 $</div>
-              	<a href="./Bushido_files/Bushido.html"><img src="img/2(1).jpg" alt="2"></a>
-                <div class="footer">
-                	<a href="./Bushido_files/Bushido.html">Nikon Coolpix</a>
-                  <span>by Pirate3d</span>
-                  <div class="tools">
-                  	<div class="rate">
-                    	<span class="active"></span>
-                      <span class="active"></span>
-                      <span class="active"></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="./Bushido_files/Bushido.html"><span>To cart</span><i class="icon-shopping-cart"></i></a>
-                    <!--Share Button-->
-                    <div class="share-btn">
-                    	<div class="hover-state">
-                      	<a class="fa fa-facebook-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-twitter-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-google-plus-square" href="./Bushido_files/Bushido.html"></a>
-                      </div>
-                      <i class="fa fa-share"></i>
-                    </div>
-                    <!--Add To Wishlist Button-->
-                    <a class="wishlist-btn" href="./Bushido_files/Bushido.html">
-                    	<div class="hover-state">Wishlist</div>
-                    	<i class="fa fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Tile-->
-          	<div class="col-lg-3 col-md-4 col-sm-6">
-            	<div class="tile">
-              	<div class="badges">
-                  <span class="best-seller"></span>
-                </div>
-              	<div class="price-label">715,00 $</div>
-              	<a href="./Bushido_files/Bushido.html"><img src="img/3(1).jpg" alt="3"></a>
-                <div class="footer">
-                	<a href="./Bushido_files/Bushido.html">Nikon WP-N3</a>
-                  <span>by Pirate3d</span>
-                  <div class="tools">
-                  	<div class="rate">
-                    	<span class="active"></span>
-                      <span class="active"></span>
-                      <span class="active"></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="./Bushido_files/Bushido.html"><span>To cart</span><i class="icon-shopping-cart"></i></a>
-                    <!--Share Button-->
-                    <div class="share-btn">
-                    	<div class="hover-state">
-                      	<a class="fa fa-facebook-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-twitter-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-google-plus-square" href="./Bushido_files/Bushido.html"></a>
-                      </div>
-                      <i class="fa fa-share"></i>
-                    </div>
-                    <!--Add To Wishlist Button-->
-                    <a class="wishlist-btn" href="./Bushido_files/Bushido.html">
-                    	<div class="hover-state">Wishlist</div>
-                    	<i class="fa fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Tile-->
-          	<div class="col-lg-3 col-md-4 col-sm-6">
-            	<div class="tile">
-              	<div class="price-label">715,00 $</div>
-              	<a href="./Bushido_files/Bushido.html"><img src="img/4(1).jpg" alt="4"></a>
-                <div class="footer">
-                	<a href="./Bushido_files/Bushido.html">Nikkor 10-30 VR</a>
-                  <span>by Pirate3d</span>
-                  <div class="tools">
-                  	<div class="rate">
-                    	<span class="active"></span>
-                      <span class="active"></span>
-                      <span class="active"></span> 
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="./Bushido_files/Bushido.html"><span>To cart</span><i class="icon-shopping-cart"></i></a>
-                    <!--Share Button-->
-                    <div class="share-btn">
-                    	<div class="hover-state">
-                      	<a class="fa fa-facebook-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-twitter-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-google-plus-square" href="./Bushido_files/Bushido.html"></a>
-                      </div>
-                      <i class="fa fa-share"></i>
-                    </div>
-                    <!--Add To Wishlist Button-->
-                    <a class="wishlist-btn" href="./Bushido_files/Bushido.html">
-                    	<div class="hover-state">Wishlist</div>
-                    	<i class="fa fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          	
+          </div>
+                <div class="row item2">       
+              
+     
           	<!--Tile-->
-          	<div class="col-lg-3 col-md-4 col-sm-6">
-            	<div class="tile">
-              	<div class="price-label">715,00 $</div>
-                <div class="price-label old-price">920,00 $</div>
-              	<a href="./Bushido_files/Bushido.html"><img src="img/5(1).jpg" alt="5"></a>
-                <div class="footer">
-                	<a href="./Bushido_files/Bushido.html">Nikon WU 1b</a>
-                  <span>by Pirate3d</span>
-                  <div class="tools">
-                  	<div class="rate">
-                    	<span class="active"></span>
-                      <span class="active"></span>
-                      <span class="active"></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="./Bushido_files/Bushido.html"><span>To cart</span><i class="icon-shopping-cart"></i></a>
-                    <!--Share Button-->
-                    <div class="share-btn">
-                    	<div class="hover-state">
-                      	<a class="fa fa-facebook-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-twitter-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-google-plus-square" href="./Bushido_files/Bushido.html"></a>
-                      </div>
-                      <i class="fa fa-share"></i>
-                    </div>
-                    <!--Add To Wishlist Button-->
-                    <a class="wishlist-btn" href="./Bushido_files/Bushido.html">
-                    	<div class="hover-state">Wishlist</div>
-                    	<i class="fa fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Tile-->
-          	<div class="col-lg-3 col-md-4 col-sm-6">
-            	<div class="tile">
-              	<div class="price-label">715,00 $</div>
-              	<a href="./Bushido_files/Bushido.html"><img src="img/6(1).jpg" alt="6"></a>
-                <div class="footer">
-                	<a href="./Bushido_files/Bushido.html">Nikon V3</a>
-                  <span>by Pirate3d</span>
-                  <div class="tools">
-                  	<div class="rate">
-                    	<span class="active"></span>
-                      <span class="active"></span>
-                      <span class="active"></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="./Bushido_files/Bushido.html"><span>To cart</span><i class="icon-shopping-cart"></i></a>
-                    <!--Share Button-->
-                    <div class="share-btn">
-                    	<div class="hover-state">
-                      	<a class="fa fa-facebook-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-twitter-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-google-plus-square" href="./Bushido_files/Bushido.html"></a>
-                      </div>
-                      <i class="fa fa-share"></i>
-                    </div>
-                    <!--Add To Wishlist Button-->
-                    <a class="wishlist-btn" href="./Bushido_files/Bushido.html">
-                    	<div class="hover-state">Wishlist</div>
-                    	<i class="fa fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Tile-->
-          	<div class="col-lg-3 col-md-4 col-sm-6">
-            	<div class="tile">
-              	<div class="price-label">715,00 $</div>
-              	<a href="./Bushido_files/Bushido.html"><img src="img/7.jpg" alt="7"></a>
-                <div class="footer">
-                	<a href="./Bushido_files/Bushido.html">Nikon J4</a>
-                  <span>by Pirate3d</span>
-                  <div class="tools">
-                  	<div class="rate">
-                    	<span class="active"></span>
-                      <span class="active"></span>
-                      <span class="active"></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="./Bushido_files/Bushido.html"><span>To cart</span><i class="icon-shopping-cart"></i></a>
-                    <!--Share Button-->
-                    <div class="share-btn">
-                    	<div class="hover-state">
-                      	<a class="fa fa-facebook-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-twitter-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-google-plus-square" href="./Bushido_files/Bushido.html"></a>
-                      </div>
-                      <i class="fa fa-share"></i>
-                    </div>
-                    <!--Add To Wishlist Button-->
-                    <a class="wishlist-btn" href="./Bushido_files/Bushido.html">
-                    	<div class="hover-state">Wishlist</div>
-                    	<i class="fa fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Tile-->
-          	<div class="col-lg-3 col-md-4 col-sm-6">
-            	<div class="tile">
-              	<div class="price-label">715,00 $</div>
-              	<a href="./Bushido_files/Bushido.html"><img src="img/8.jpg" alt="8"></a>
-                <div class="footer">
-                	<a href="./Bushido_files/Bushido.html">Nikkor AF-S</a>
-                  <span>by Pirate3d</span>
-                  <div class="tools">
-                  	<div class="rate">
-                    	<span class="active"></span>
-                      <span class="active"></span>
-                      <span class="active"></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <!--Add To Cart Button-->
-                    <a class="add-cart-btn" href="./Bushido_files/Bushido.html"><span>To cart</span><i class="icon-shopping-cart"></i></a>
-                    <!--Share Button-->
-                    <div class="share-btn">
-                    	<div class="hover-state">
-                      	<a class="fa fa-facebook-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-twitter-square" href="./Bushido_files/Bushido.html"></a>
-                        <a class="fa fa-google-plus-square" href="./Bushido_files/Bushido.html"></a>
-                      </div>
-                      <i class="fa fa-share"></i>
-                    </div>
-                    <!--Add To Wishlist Button-->
-                    <a class="wishlist-btn" href="./Bushido_files/Bushido.html">
-                    	<div class="hover-state">Wishlist</div>
-                    	<i class="fa fa-plus"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          	
           </div>
         </div>
       </section><!--Catalog Grid Close-->
@@ -695,25 +353,25 @@
       <section class="tabs-widget">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-          <li class="active"><a href="http://the8guild.com/themes/html/bushido/v1.3/index.html#bestsel" data-toggle="tab">Bestseller items</a></li>
-          <li><a href="http://the8guild.com/themes/html/bushido/v1.3/index.html#onsale" data-toggle="tab">Items on sale</a></li>
+          <li class="active"><a href="#bestsel" data-toggle="tab">Чаще всего покупают</a></li>
+          <li><a href="#onsale" data-toggle="tab">Акционные товары</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane fade in active" id="bestsel">
           	<div class="container">
             	<div class="row">
               	<div class="col-lg-7 col-md-7 col-sm-7">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>X-MAS LIGHT IPHONE LENS<span>$14.95</span></div></div>
+                    	<div class="descr"><div>Товар<span>14.95 грн</span></div></div>
                     </div>
                     <img src="img/1(2).jpg" alt="1">
                   </a>
                 </div>
               	<div class="col-lg-5 col-md-5 col-sm-5">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Hedadset for iPhone<span>$19.40</span></div></div>
+                    	<div class="descr"><div>Товар<span>19.40 грн грн</span></div></div>
                     </div>
                     <img src="img/2(2).jpg" alt="2">
                   </a>
@@ -721,25 +379,25 @@
               </div>
               <div class="row">
               	<div class="col-lg-4 col-md-4 col-sm-4">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                    	<div class="descr"><div>Товар<span>24.15 грн</span></div></div>
                     </div>
                     <img src="img/3(2).jpg" alt="3">
                   </a>
                 </div>
               	<div class="col-lg-5 col-md-5 col-sm-5">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                    	<div class="descr"><div>Товар<span>24.15 грн</span></div></div>
                     </div>
                     <img src="img/4(2).jpg" alt="4">
                   </a>
                 </div>
               	<div class="col-lg-3 col-md-3 col-sm-3">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$24.15</span></div></div>
+                    	<div class="descr"><div>Товар<span>24.15 грн</span></div></div>
                     </div>
                     <img src="img/5(2).jpg" alt="5">
                   </a>
@@ -751,25 +409,25 @@
           	<div class="container">
             	<div class="row">
               	<div class="col-lg-4 col-md-4 col-sm-4">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$14.95</span></div></div>
+                    	<div class="descr"><div>Товар<span>14.95 грн</span></div></div>
                     </div>
                     <img src="img/6(2).jpg" alt="6">
                   </a>
                 </div>
               	<div class="col-lg-4 col-md-4 col-sm-4">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$19.40</span></div></div>
+                    	<div class="descr"><div>Товар<span>19.40 грн</span></div></div>
                     </div>
                     <img src="img/7(1).jpg" alt="7">
                   </a>
                 </div>
               	<div class="col-lg-4 col-md-4 col-sm-4">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$19.40</span></div></div>
+                    	<div class="descr"><div>Товар<span>19.40 грн</span></div></div>
                     </div>
                     <img src="img/8(1).jpg" alt="8">
                   </a>
@@ -777,25 +435,25 @@
               </div>
             	<div class="row">
               	<div class="col-lg-4 col-md-4 col-sm-4">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$14.95</span></div></div>
+                    	<div class="descr"><div>Товар<span>$14.95</span></div></div>
                     </div>
                     <img src="img/9.jpg" alt="9">
                   </a>
                 </div>
               	<div class="col-lg-4 col-md-4 col-sm-4">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$19.40</span></div></div>
+                    	<div class="descr"><div>Товар<span>19.40 грн</span></div></div>
                     </div>
                     <img src="img/10.jpg" alt="10">
                   </a>
                 </div>
               	<div class="col-lg-4 col-md-4 col-sm-4">
-                	<a class="media-link" href="./Bushido_files/Bushido.html">
+                	<a class="media-link" href="#">
                   	<div class="overlay">
-                    	<div class="descr"><div>Product Name<span>$19.40</span></div></div>
+                    	<div class="descr"><div>Товар<span>19.40 грн</span></div></div>
                     </div>
                     <img src="img/11.jpg" alt="11">
                   </a>
@@ -815,31 +473,31 @@
               <div class="row">
                 <div class="col-lg-3">
                   <h2 class="extra-bold">Latests posts</h2>
-                  <a class="btn btn-success btn-block" href="./Bushido_files/Bushido.html">To blog</a>
+                  <a class="btn btn-success btn-block" href="#">To blog</a>
                 </div>
                 <div class="col-lg-9">
                   <!--Post-->
                   <div class="post row">
                     <div class="col-lg-6 col-sm-6">
-                      <a href="./Bushido_files/Bushido.html"><img src="img/1(3).jpg" alt="1"></a>
+                      <a href="#"><img src="img/1(3).jpg" alt="1"></a>
                     </div>
                     <div class="col-lg-6 col-sm-6">
-                      <h3><a href="./Bushido_files/Bushido.html">Another Title</a></h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                        <div class="author"><i class="fa fa-user"></i><a href="./Bushido_files/Bushido.html">By Bedismo</a></div>
-                        <div class="comments"><i class="fa fa-comment"></i><a href="./Bushido_files/Bushido.html">Comments (34)</a></div>
+                      <h3><a href="#">Another Title</a></h3>
+                      <p>Информация о товаре</p>
+                        <div class="author"><i class="fa fa-user"></i><a href="#">By Bedismo</a></div>
+                        <div class="comments"><i class="fa fa-comment"></i><a href="#">Comments (34)</a></div>
                     </div>
                   </div><!--Post End-->
                   <!--Post-->
                   <div class="post row">
                     <div class="col-lg-6 col-sm-6">
-                      <a href="./Bushido_files/Bushido.html"><img src="img/2(3).jpg" alt="2"></a>
+                      <a href="#"><img src="img/2(3).jpg" alt="2"></a>
                     </div>
                     <div class="col-lg-6 col-sm-6">
-                      <h3><a href="./Bushido_files/Bushido.html">Awesome Title</a></h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                        <div class="author"><i class="fa fa-user"></i><a href="./Bushido_files/Bushido.html">By Jeddah</a></div>
-                        <div class="comments"><i class="fa fa-comment"></i><a href="./Bushido_files/Bushido.html">Comments (101)</a></div>
+                      <h3><a href="#">Awesome Title</a></h3>
+                      <p>Информация о товаре</p>
+                        <div class="author"><i class="fa fa-user"></i><a href="#">By Jeddah</a></div>
+                        <div class="comments"><i class="fa fa-comment"></i><a href="#">Comments (101)</a></div>
                     </div>
                   </div><!--Post End-->
                 </div>
@@ -852,26 +510,26 @@
               </a>
               <!--Tweet-->
               <div class="tweet">
-                <a href="./Bushido_files/Bushido.html">@Bedismo</a>
+                <a href="#">@Bedismo</a>
                 <p class="p-style3">Uberly impressed with the AMAZING support I constantly get from awesome!!!</p>
                 <div class="group">
                   <div class="actions">
-                    <a href="./Bushido_files/Bushido.html">Reply</a>
-                    <a href="./Bushido_files/Bushido.html">Retweet</a>
-                    <a href="./Bushido_files/Bushido.html">Favorite</a>
+                    <a href="#">Reply</a>
+                    <a href="#">Retweet</a>
+                    <a href="#">Favorite</a>
                   </div>
                   <span class="date">5 Mar 2014</span>
                 </div>
               </div><!--Tweet Close-->
               <!--Tweet-->
               <div class="tweet">
-                <a href="./Bushido_files/Bushido.html">@Bedismo</a>
+                <a href="#">@Bedismo</a>
                 <p class="p-style3">Uberly impressed with the AMAZING support I constantly get from awesome!!!</p>
                 <div class="group">
                   <div class="actions">
-                    <a href="./Bushido_files/Bushido.html">Reply</a>
-                    <a href="./Bushido_files/Bushido.html">Retweet</a>
-                    <a href="./Bushido_files/Bushido.html">Favorite</a>
+                    <a href="#">Reply</a>
+                    <a href="#">Retweet</a>
+                    <a href="#">Favorite</a>
                   </div>
                   <span class="date">5 Mar 2014</span>
                 </div>
@@ -886,11 +544,11 @@
       	<div class="container">
         	<h2>Product gallery</h2>
           <div class="filters">
-            <a class="active" href="./Bushido_files/Bushido.html" data-group="all">All</a>
-            <a href="./Bushido_files/Bushido.html" data-group="camera">Camera</a>
-            <a href="./Bushido_files/Bushido.html" data-group="flash">Flash</a>
-            <a href="./Bushido_files/Bushido.html" data-group="lenses">Lenses</a>
-            <a href="./Bushido_files/Bushido.html" data-group="video">Video</a>
+            <a class="active" href="#" data-group="all">All</a>
+            <a href="#" data-group="camera">Camera</a>
+            <a href="#" data-group="flash">Flash</a>
+            <a href="#" data-group="lenses">Lenses</a>
+            <a href="#" data-group="video">Video</a>
           </div>
           <div class="gallery-grid shuffle" style="position: relative; height: 584px; transition: height 250ms ease-out;">
             <!--Item-->
@@ -944,7 +602,7 @@
       	<div class="container">
         	<h2>Brands in our shop</h2>
           <div class="inner owl-carousel" style="opacity: 1; display: block;">
-          	<div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 2268px; left: 0px; display: block;"><div class="owl-item" style="width: 189px;"><a class="item" href="./Bushido_files/Bushido.html"><img src="img/jquery.png" alt="jQuery"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="./Bushido_files/Bushido.html"><img src="img/wp.png" alt="WordPress"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="./Bushido_files/Bushido.html"><img src="img/woo.png" alt="WooCommerce"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="./Bushido_files/Bushido.html"><img src="img/android.png" alt="Android"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="./Bushido_files/Bushido.html"><img src="img/macgasm.png" alt="Macgasm"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="./Bushido_files/Bushido.html"><img src="img/dropbox.png" alt="Dropbox"></a></div></div></div>
+          	<div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 2268px; left: 0px; display: block;"><div class="owl-item" style="width: 189px;"><a class="item" href="#"><img src="img/jquery.png" alt="jQuery"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="#"><img src="img/wp.png" alt="WordPress"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="#"><img src="img/woo.png" alt="WooCommerce"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="#"><img src="img/android.png" alt="Android"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="#"><img src="img/macgasm.png" alt="Macgasm"></a></div><div class="owl-item" style="width: 189px;"><a class="item" href="#"><img src="img/dropbox.png" alt="Dropbox"></a></div></div></div>
             
             
             
@@ -1008,7 +666,7 @@
             <p class="p-style2">Please fill the field before continuing</p>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-1">
-            <p class="p-style3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <p class="p-style3">Информация о товаре</p>
           </div>
         </div>
       </div>
@@ -1020,25 +678,25 @@
       	<div class="row">
         	<div class="col-lg-5 col-md-5 col-sm-5">
           	<div class="info">
-              <a class="logo" href="http://the8guild.com/themes/html/bushido/v1.3/index.html"><img src="img/logo.png" alt="Bushido"></a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+              <a class="logo" href=""><img src="img/logo_white_uk.png" alt="Эпицентр"></a>
+              <p>Рекламный текст</p>
               <div class="social">
-              	<a href="./Bushido_files/Bushido.html" target="_blank"><i class="fa fa-instagram"></i></a>
-              	<a href="./Bushido_files/Bushido.html" target="_blank"><i class="fa fa-youtube-square"></i></a>
-              	<a href="./Bushido_files/Bushido.html" target="_blank"><i class="fa fa-tumblr-square"></i></a>
-              	<a href="./Bushido_files/Bushido.html" target="_blank"><i class="fa fa-vimeo-square"></i></a>
-              	<a href="./Bushido_files/Bushido.html" target="_blank"><i class="fa fa-pinterest-square"></i></a>
-              	<a href="./Bushido_files/Bushido.html" target="_blank"><i class="fa fa-facebook-square"></i></a>
+              	<a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+              	<a href="#" target="_blank"><i class="fa fa-youtube-square"></i></a>
+              	<a href="#" target="_blank"><i class="fa fa-tumblr-square"></i></a>
+              	<a href="#" target="_blank"><i class="fa fa-vimeo-square"></i></a>
+              	<a href="#" target="_blank"><i class="fa fa-pinterest-square"></i></a>
+              	<a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-4">
           	<h2>Latest news</h2>
             <ul class="list-unstyled">
-            	<li>25 May <a href="./Bushido_files/Bushido.html">Nemo enim ipsam voluptatem</a></li>
-            	<li>01 May <a href="./Bushido_files/Bushido.html">Neque porro quisquam est</a></li>
-            	<li>16 Apr <a href="./Bushido_files/Bushido.html">Lorem ipsum dolor sit amet</a></li>
-            	<li>10 Jan <a href="./Bushido_files/Bushido.html">Sed ut perspiciatis unde</a></li>
+            	<li>25 May <a href="#">Nemo enim ipsam voluptatem</a></li>
+            	<li>01 May <a href="#">Neque porro quisquam est</a></li>
+            	<li>16 Apr <a href="#">Lorem ipsum dolor sit amet</a></li>
+            	<li>10 Jan <a href="#">Sed ut perspiciatis unde</a></li>
             </ul>
           </div>
           <div class="contacts col-lg-3 col-md-3 col-sm-3">
@@ -1093,24 +751,21 @@
     <script src="js/classie.js"></script>
     <script src="js/modernizr.custom.js"></script>
     <script src="js/notificationFx.js"></script> 
-
-    <!--Google Remarketing Tag (Placed before </body>)-->
-    <script type="text/javascript">
-    /* <![CDATA[ */
-    var google_conversion_id = 966923546;
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    /* ]]> */
-    </script>
-    <script type="text/javascript" src="js/I-Shop.js"> 
-    <script type="text/javascript" src="js/conversion.js">
-    </script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./Bushido_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/966923546/?frame=0&amp;random=1449139240260&amp;cv=8&amp;fst=1449139240260&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1050&amp;u_aw=1920&amp;u_cd=24&amp;u_his=1&amp;u_tz=120&amp;u_java=true&amp;u_nplug=5&amp;u_nmime=7&amp;frm=0&amp;url=http%3A//the8guild.com/themes/html/bushido/v1.3/index.html&amp;tiba=Bushido%20-%20HTML5%20E-Commerce%20Template" /&gt;</iframe>
-    <noscript>
-    &lt;div style="display:inline;"&gt;
-    &lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/966923546/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
-    &lt;/div&gt;
-    </noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>    
+   
     
-  
-
-</body><!--Body Close--></html>
+    
+  <script type="text/javascript" src="js/I-Shop.js"> </script>
+   <script> 
+       $(function()
+       {
+        var targetBuildData = $(".item1");
+        var targetBuildCart = $(".buildDataCart1");
+     //   var targetBuildData2 = $(".item2");
+       // var targetBuildCart2 = $(".buildDataCart2");
+        var url = "admin.php";
+        var i = new Data(targetBuildData,targetBuildCart,url);         
+     //   var j = new Data(targetBuildData2,targetBuildCart2,url); 
+    });
+   </script>
+</body><!--Body Close--></html>  

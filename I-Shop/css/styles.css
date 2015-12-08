@@ -186,7 +186,7 @@ td,
 th {
   padding: 0;
 }
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
 @media print {
   *,
   *:before,
@@ -8910,7 +8910,7 @@ button.close {
   white-space: nowrap;
 }
 #lightGallery-slider .lightGallery-slide {
-  background: url(../img/loading.gif) no-repeat scroll center center transparent;
+  background: url(./img/loading.gif) no-repeat scroll center center transparent;
   display: inline-block;
   height: 100%;
   line-height: 1px;
@@ -11034,7 +11034,7 @@ header .search-form .close-search:hover {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100%;
+  min-height: 100%; 
   z-index: 2;
   background: url(../img/overlays/overlay-success.png) repeat;
 }
@@ -11304,7 +11304,7 @@ header .search-form .close-search:hover {
   filter: alpha(opacity=0);
   width: 33px;
   height: 17px;
-  background: url(../masterslider/style/arrow.png) no-repeat;
+  background: url(./masterslider/style/arrow.png) no-repeat;
   margin-left: -16px;
   border: none !important;
 }
@@ -11427,7 +11427,7 @@ header .search-form .close-search:hover {
   position: absolute;
   width: 33px;
   height: 17px;
-  background: url(../img/arrow-down.png) no-repeat;
+  background: url(./img/arrow-down.png) no-repeat;
   bottom: 0;
   left: 50%;
   margin-left: -16px;
@@ -13062,10 +13062,10 @@ header .search-form .close-search:hover {
   cursor: pointer;
 }
 .shop-filters .filter-section label .icheckbox {
-  background: url(../img/forms/checkbox.png) no-repeat 0px 0px;
+  background: url(./img/forms/checkbox.png) no-repeat 0px 0px;
 }
 .shop-filters .filter-section label .iradio {
-  background: url(../img/forms/radio.png) no-repeat 0px 0px;
+  background: url(./img/forms/radio.png) no-repeat 0px 0px;
 }
 .shop-filters .filter-section label .icheckbox.checked,
 .shop-filters .filter-section label .iradio.checked {
@@ -13260,7 +13260,7 @@ header .search-form .close-search:hover {
   width: 100%;
   margin: 16px auto 28.8px auto;
   padding: 24px 15px 48px 15px;
-  background: url(../img/offers/special-offer-bg.png) repeat;
+  background: url(./img/offers/special-offer-bg.png) repeat;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -13668,7 +13668,7 @@ header .search-form .close-search:hover {
   margin-left: 10px;
   width: 68px;
   height: 24px;
-  background: url(../img/forms/paypal-label.png) no-repeat;
+  background: url(./img/forms/paypal-label.png) no-repeat;
 }
 .top-item {
   width: 100%;
@@ -13933,7 +13933,7 @@ header .search-form .close-search:hover {
   color: #1f89b4;
 }
 .page-404 {
-  background: url(../img/noise.gif) repeat;
+  background: url(./img/noise.gif) repeat;
 }
 .page-404 .content {
   width: 100%;
@@ -15211,10 +15211,10 @@ header .search-form .close-search:hover {
   border: none;
   bottom: -36px;
   margin-left: -16px;
-  background: url(../img/arrow-down.png) no-repeat;
+  background: url(./img/arrow-down.png) no-repeat;
 }
 .popover.top > .arrow:hover {
-  background: transparent url(../img/arrow-down.png) no-repeat;
+  background: transparent url(./img/arrow-down.png) no-repeat;
 }
 .popover.top > .arrow:after {
   display: none;
