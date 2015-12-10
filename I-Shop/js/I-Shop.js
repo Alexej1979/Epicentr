@@ -1,93 +1,25 @@
 (function()
-{      
-    window.Data = function(targetBuildData,targetBuildCart,url) 
+{   
+    window.Data = function(targetBuildData,targetBuildCart,url,start,count) 
     {    
         /* --- Инициализация модели данных --*/
         this.item = targetBuildData;  // Jquery элемент куда рисовать данные
         this.cart = targetBuildCart;
+        this.numberOfPage = 1;
+        this.start = start;
+        this.count = count;
+        this.brand = "";
+        this.deferred = $.Deferred(); // используем для подписки на добавление товара в корзину
+        this.currentView = "Tile";
         this.dataFromAjax = []; // массив объектов принятых с сервера           
         this.url = url; //определяем откуда брать Ajax скрипт 
         this.sortOrder = 1; // определяем вариант сортировки данных в массиве (по возрастанию (1) или по убыванию (-1))
         this.item.prepend(buildButtonForView());       // Строим кнопки варианта отображения данных             
-        var selectOptionForSort = 0;           
+        var selectOptionForSort = 0;
         
-            
-        $.ajax
-        ({
-            type: "POST",
-            url: this.url,
-            dataType:"json",
-            context: this 
-        })         
-        .done(function(a) 
-        {        
-            var itemLength = 5; // Numbers of item buttons 
-            if (a.length == 0 || $.isArray(a)==false) // Checked of a wrong Ajax data
-            {
-                var notification = new NotificationFx // For Notification Alert
-                ({
-                    wrapper : document.body,
-                    message : '<span class="icon icon-megaphone"></span><p class="pStyle">Ошибка в массиве данных</p>',
-                    layout : 'bar',
-                    effect : 'slidetop',
-                    type : 'error',
-                    ttl : 60000000,
-                    onClose : function() { return false; },
-                    onOpen : function() { return false; }
-                });
-                    notification.show();
-                }
-            else
-            {
-                this.dataFromAjax = a;                    
-                this.buildData(this.item);
-            }
-        }).fail(function()
-        {
-            var notification = new NotificationFx // Error: No Server
-            ({
-                wrapper : document.body,
-                message : '<span class="icon icon-megaphone"></span><p class="pStyle">Нет связи с сервером</p>',
-                layout : 'bar',
-                effect : 'slidetop',
-                type : 'error',
-                ttl : 60000000,
-                onClose : function() { return false; },
-                onOpen : function() { return false; }
-            });
-            notification.show(); 
-        });
-        
-        this.item.find(".viewTile").data("this",this);  // передаем через Data объект this  - как вариант использования без замыкания
-                
-                //--Build on click view --//
-                
-        this.item.find(".viewTile").on("click", function()
-        {          
-            buildDataByTile($(this).data("this"),$(this).data("this").cart);                                     
-        });
-                
-            //--Build on click view --// // Как пример - делаем замыкание переменной this
-                
-        this.item.find(".viewList").on("click", function(x)
-        {
-            return function ()
-            {                          
-                buildDataByList(x,x.cart); 
-            };
-        }(this));        
-        
-        this.item.find(".viewTable").data("this",this);                  
-            
-        //--Build on click view --//
-                
-        this.item.find(".viewTable").on("click", function()
-        {
-            buildDataByTable($(this).data("this"),$(this).data("this").cart);  
-        });
-        
-        this.buildData = function() 
-        {   
+        ajax(this); // получаем данные Аджакс;
+                              
+                              // Строим корзину 
             var spanForCart = $("<span>");    
             var thForCart1 = $('<th>').html("Товары");
             var thForCart2 = $('<th>').html("Кол");
@@ -99,7 +31,7 @@
                  
             var tbodyForCart = $('<tbody>').addClass("tbodyForCart").append(trForCart).append(buildCart());     
             var buildDataCart = $("<table>").append(tbodyForCart);                
-            var divForCart = $("<div>").addClass("body").append(buildDataCart);              // Строим корзину 
+            var divForCart = $("<div>").addClass("body").append(buildDataCart);              
                 
                 
             var iForCart1 = $("<i>").addClass("icon-download");
@@ -116,25 +48,165 @@
                     .append(aForCart1)
                     .append(aForCart2);
                 
-            var totalForCart = $("<div>").addClass("total").html("0 грн");                
-            var divForCart2 = $("<div>").addClass("footer group").append(divForCart3).append(totalForCart);                
-            this.cart.append(spanForCart).append(divForCart).append(divForCart2);
-        
-            buildDataByTile(this,this.cart);                  
-            };  
+            var totalForCart = $("<div>").addClass("total priceToCart").html("0 грн"); 
+            var volumeForCart = $("<div>").addClass("total volumeForCart").html("0 м3 объем").css({"font-size":"1.0em","margin-top":"-30px"});
+            var weightForCart = $("<div>").addClass("total weightForCart").html("0 кг вес").css({"font-size":"1.0em","margin-top":"-30px"});
+            var deliveryForCart = $("<div>").addClass("total deliveryForCart").html("0 грн доставка").css({"font-size":"1.0em","margin-top":"-30px"});
+            var divForCart2 = $("<div>").addClass("footer group")
+                    .append(divForCart3)
+                    .append(totalForCart);
             
-            this.item.find($(".optionForSort")).change(function()
+            var divForCart4 = $("<div>").addClass("footer group")
+                    .append(volumeForCart);
+            
+            var divForCart5 = $("<div>").addClass("footer group")
+                    .append(weightForCart);
+            
+            var divForCart6 = $("<div>").addClass("footer group")
+                    .append(deliveryForCart);
+            
+            this.cart.append(spanForCart)
+                    .append(divForCart)
+                    .append(divForCart2)
+                    .append(divForCart4)
+                    .append(divForCart5)
+                    .append(divForCart6);
+            
+            
+            this.getDeferred = function()
+            {
+                return this.deferred.promise();
+            };
+            
+             // строим пагинацию
+            
+              this.item.twbsPagination 
+              ({ 
+              totalPages: 35, 
+              visiblePages: 7,
+              onPageClick: function (z) 
+              { 
+                 return function(event, page)
+                 {
+                    z.numberOfPage = page;                
+                    z.start = z.count*(z.numberOfPage-1); 
+                    z.brand = z.item.find(".inputForBrand").val();
+                    ajax(z); // Аджакс;
+                 };
+              }(this)
+            });            
+               
+        this.item.find(".viewTile").data("this",this);  // передаем через Data объект this  - как вариант использования без замыкания
+                
+                //--Build on click view --//
+                
+        this.item.find(".viewTile").on("click", function() // вид отображения плиткой
+        {         
+            $(this).data("this").currentView = "Tile";
+            // строим пагинацию
+            
+              $(this).data("this").item.twbsPagination 
+              ({ 
+              totalPages: 35, 
+              visiblePages: 7,
+              onPageClick: function (z) 
+              { 
+                 return function(event, page)
+                 {
+                    z.numberOfPage = page;                
+                    z.start = z.count*(z.numberOfPage-1); 
+                    z.brand = z.item.find(".inputForBrand").val();
+                    ajax(z); // получаем данные Аджакс;
+                 };
+              }($(this).data("this"))
+            });  
+            
+            buildDataByTile($(this).data("this"),$(this).data("this").cart); // строим плитку
+            
+        });
+                
+            //--Build on click view --// // Как пример - делаем замыкание переменной this
+                
+        this.item.find(".viewList").on("click", function(x) // вид отображения списком
+        {
+            return function ()
+            {    
+              x.currentView = "List";
+            // строим пагинацию
+            
+              x.item.twbsPagination 
+              ({ 
+              totalPages: 35, 
+              visiblePages: 7,
+              onPageClick: function (z) 
+              { 
+                 return function(event, page)
+                 {
+                    z.numberOfPage = page;                
+                    z.start = z.count*(z.numberOfPage-1); 
+                    z.brand = z.item.find(".inputForBrand").val();
+                    ajax(z); // получаем данные Аджакс;
+                 };
+              }(x)
+            });  
+                
+                buildDataByList(x,x.cart); // строим список
+            };
+        }(this));        
+        
+        this.item.find(".viewTable").data("this",this);                  
+            
+        //--Build on click view --//
+                
+        this.item.find(".viewTable").on("click", function() //вид отображения таблицей
+        {
+             
+             $(this).data("this").currentView = "Table";
+            // строим пагинацию
+            
+              $(this).data("this").item.twbsPagination 
+              ({ 
+              totalPages: 35, 
+              visiblePages: 7,
+              onPageClick: function (z) 
+              { 
+                 return function(event, page)
+                 {
+                    z.numberOfPage = page;                
+                    z.start = z.count*(z.numberOfPage-1); 
+                    ajax(z); // получаем данные Аджакс;
+                 };
+              }($(this).data("this"))
+            });  
+            
+            buildDataByTable($(this).data("this"),$(this).data("this").cart);  // строим таблицу
+        });
+        
+        this.buildData = function(dataThis)  // при загрузке страницы, после получения данных от аджакса
+        {   
+            buildDataByTile(dataThis,dataThis.cart); 
+        };  
+            
+            this.item.find($(".optionForSort")).change(function() // выбираем по какому принципу сортировать товар
             {               
                 selectOptionForSort = $(this).val();
             });
             
             this.item.find(".sortData").data("this",this);            
-            this.item.find(".sortData").on("click", function()
+            this.item.find(".sortData").on("click", function() // событие нажатия кнопки сортировки
             {                  
-               var sortorder = $(this).is(".sortFromDownToUp")?-1:1;
+               var sortorder = $(this).is(".sortFromDownToUp")?-1:1; // сортируем по убыванию или по возрастанию
                $(this).data("this").dataFromAjax.sort(dataArraySort(sortorder)[selectOptionForSort-1]);   
                selectForBuildData($(this).data("this"));    
-           });       
+           });  
+           
+           this.item.find(".choiceForBrand").data("this",this);
+           
+           this.item.find(".choiceForBrand").on("click", function() //сортировка по бренду 
+           {
+               $(this).data("this").brand = $(this).data("this").item.find(".inputForBrand").val();              
+               ajax($(this).data("this"), $(this).data("this").brand);               
+           }); 
         };
         
   
@@ -218,23 +290,25 @@ function selectForBuildData(data)
     }
 }
        
-function buildCart(name,price,id)
+function buildCart(name,price,id,weightForCart,volumeForCart)
 {
     if (name!==undefined||price!==undefined)
     {     
         var aForCart = $("<a>").addClass("removeFromCart").css('cursor',"pointer").html(name);
         var tdaForCart = $('<td>')
                 .append(aForCart);
-        var inputForCart = $('<input>').attr("type",'text').attr('value',"1");
+        var inputForCart = $('<input>').attr("type",'text').attr('value',"1").prop('readonly', true);
         var tdInputForCart = $("<td>").append(inputForCart);
-        var tdPriceForCart = $("<td>").addClass("price").html(price+" грн");
-        
+        var tdPriceForCart = $("<td>").addClass("price")
+                .attr("weightForCart",weightForCart)
+                .attr("volumeForCart",volumeForCart)
+                .html(price+" грн");
         var trForCart2 = $("<tr>").addClass("item").attr("id","id"+id)
                 .append(tdaForCart)
                 .append(tdInputForCart)
                 .append(tdPriceForCart);
-        
     return trForCart2;
+    
     }
     else return ($("<tr>").addClass('emptyCart').html("Корзина пустая"));
  };
@@ -242,9 +316,10 @@ function buildCart(name,price,id)
 
 function buildDataByList(data,dataCart)
 {
+   
     data.item.find(".divForAppendTo").remove();
     var divForAppendTo = $("<div>").addClass("divForAppendTo");
-    for (var i=0; i<5; i++)
+    for (var i=0; i < data.count && i < data.dataFromAjax.length; i++)
         {
          var id = data.dataFromAjax[i].ID;
          var brand = data.dataFromAjax[i].BRAND;
@@ -256,9 +331,11 @@ function buildDataByList(data,dataCart)
          data.item.append(divForAppendTo.append(prepareHtmlElementsByList(id,brand,name,price,weight,volume,description)
                  .data("priceList",price)
                  .data("idList",id)
+                 .data("volumeForCart",volume)
+                 .data("weightForCart",weight)
                  .data("nameList",name)));; 
         };
-        data.item.find(".addItemToCart").data("thisCart",dataCart).on("click",function()
+        data.item.find(".addItemToCart").data("thisCart",dataCart).data("thisCart",dataCart).on("click",function()
         {
             var notification = new NotificationFx(
                     {
@@ -276,17 +353,23 @@ function buildDataByList(data,dataCart)
             $(this).data("thisCart").find(".emptyCart").remove();
             var name = $(this).closest(".ElementsByList").data('nameList');
             var price = $(this).closest(".ElementsByList").data('priceList');    
-            var id = $(this).closest(".ElementsByList").data('idList'); 
-            workInCart($(this).data("thisCart"),id,price,name);
+            var id = $(this).closest(".ElementsByList").data('idList');
+            
+            var volumeForCart = $(this).closest(".ElementsByList").data("volumeForCart");
+            var weightForCart = $(this).closest(".ElementsByList").data("weightForCart"); 
+            
+            workInCart($(this).data("thisCart"),id,price,name,weightForCart,volumeForCart);
+            $(this).data("thisData").deferred.notify(name); // возвращаем подписку на добавление товара в корзину
         });
     }
         
 function buildDataByTile(data,dataCart)
 {
+    
     data.item.find(".divForAppendTo").remove();    
     var divForAppendTo = $("<div>").addClass("divForAppendTo");
     
-    for (var i=0; i<5; i++)
+    for (var i=0; i < data.count && i < data.dataFromAjax.length; i++)
     {                        
         var imageTile = data.dataFromAjax[i].IMG;
         var priceTile = data.dataFromAjax[i].PRICE;
@@ -301,13 +384,16 @@ function buildDataByTile(data,dataCart)
                 .append(prepareHtmlElementsByTile(imageTile,priceTile,brandTile, descriptionTile, volumeTile, weightTile,idTile,nameTile)
                 .data("priceTile",priceTile)
                 .data("idTile",idTile)
+                .data("volumeForCart",volumeTile)
+                .data("weightForCart",weightTile)
                 .data("nameTile",nameTile)));
     }
     data.item.find(".imgTile").on('error', function() 
     {
         $(this).attr("src",'img/no_image.gif');
     }); 
-    data.item.find(".addItemToCart").data("thisCart",dataCart).on("click",function()
+    
+    data.item.find(".addItemToCart").data("thisCart",dataCart).data("thisData",data).on("click",function()
     {
         var notification = new NotificationFx(
                 {
@@ -325,15 +411,17 @@ function buildDataByTile(data,dataCart)
         var name = $(this).closest(".ElementsByTile").data('nameTile');
         var price = $(this).closest(".ElementsByTile").data('priceTile');    
         var id = $(this).closest(".ElementsByTile").data('idTile'); 
+        var volumeForCart = $(this).closest(".ElementsByTile").data("volumeForCart");
+        var weightForCart = $(this).closest(".ElementsByTile").data("weightForCart"); 
         
-        
-        workInCart($(this).data("thisCart"),id,price,name);
-       
+        workInCart($(this).data("thisCart"),id,price,name,weightForCart,volumeForCart);
+       $(this).data("thisData").deferred.notify(name); // возвращаем подписку на добавление товара в корзину
 });    
 }
 
 function buildDataByTable(data,dataCart)
 {
+      
       data.item.find(".divForAppendTo").remove(); 
       var thThead1 = $("<th>").html("ID").css("text-align","center");
                     
@@ -361,7 +449,7 @@ function buildDataByTable(data,dataCart)
     var divForAppendTo = $("<div>").addClass("divForAppendTo")
             .append(tableThead);                    
 
-    for (var i=0; i<5; i++)
+    for (var i=0; i < data.count && i < data.dataFromAjax.length; i++)
     { 
          var id = data.dataFromAjax[i].ID;
          var brand = data.dataFromAjax[i].BRAND;
@@ -373,97 +461,89 @@ function buildDataByTable(data,dataCart)
          tableThead.append(prepareHtmlElementsByTable(id,brand,name,price,weight,volume).addClass("ElementsByTable")
                  .data("priceTable",price)
                  .data("idTable",id)
+                 .data("volumeForCart",volume)
+                 .data("weightForCart",weight)
                  .data("nameTable",name));                         
     } 
 
     data.item.append(divForAppendTo); 
-
-    data.item.find(".addItemToCart").data("thisCart",dataCart).on("click",function()
+    
+   
+    data.item.find(".addItemToCart").data("thisCart",dataCart).data("thisData",data).attr("numbersClick","0").on("click",function()
     {
-
+        
         var notification = new NotificationFx(
-                {
+        {
+                wrapper : document.body,
 
-        // element to which the notification will be appended
-        // defaults to the document.body
-        wrapper : document.body,
+                message : '<p>Товар добавлен в корзину</p>',
 
-        // the message
-        message : '<p>Товар добавлен в корзину</p>',
+                layout : 'growl',
 
-        // layout type: growl|attached|bar|other
-        layout : 'growl',
+                effect : 'jelly',
 
-        // effects for the specified layout:
-        // for growl layout: scale|slide|genie|jelly
-        // for attached layout: flip|bouncyflip
-        // for other layout: boxspinner|cornerexpand|loadingcircle|thumbslider
-        // ...
-        effect : 'jelly',
+                type : 'success',
 
-        // notice, warning, error, success
-        // will add class ns-type-warning, ns-type-error or ns-type-success
-        type : 'success',
+                ttl : 1500,
 
-        // if the user doesn´t close the notification then we remove it 
-        // after the following time
-        ttl : 1500,
+                onClose : function() { return false; },
+                onOpen : function() { return false; }
+        });
 
-        // callbacks
-        onClose : function() { return false; },
-        onOpen : function() { return false; }
-
-    });
-
-    // show the notification
     notification.show();
-
-    $(this).data("thisCart").find(".emptyCart").remove();
+    $(this).data("thisCart").find(".emptyCart").remove();        
     var name = $(this).closest(".ElementsByTable").data('nameTable');
     var price = $(this).closest(".ElementsByTable").data('priceTable');     
-    var id = $(this).closest(".ElementsByTable").data('idTable'); 
+    var id = $(this).closest(".ElementsByTable").data('idTable');       
+    var volumeForCart = $(this).closest(".ElementsByTable").data("volumeForCart");
+    var weightForCart = $(this).closest(".ElementsByTable").data("weightForCart"); 
 
-     workInCart($(this).data("thisCart"),id,price,name);
+    workInCart($(this).data("thisCart"),id,price,name,weightForCart,volumeForCart);
+    
+    $(this).data("thisData").deferred.notify(name); // возвращаем подписку на добавление товара в корзину
 });
 }                    
    
-function workInCart(thisData,id,price,name)
+function workInCart(thisData,id,price,name,weightForCart,volumeForCart)   // Работа с данными в корзине
 
 {
+   
      var allTotalCart=[];
+     var allVolumeForCart=[];
+     var allWeightForCart=[];
      if (thisData.find("#id"+id).length == 0)
      {                      
-        var allTotalCart=[];
-        thisData.find(".tbodyForCart").append(buildCart(name,price,id));
-        thisData.find(".price").each(function()
-           {
-               allTotalCart[allTotalCart.length] = $(this).html().split(' ')[0];  
-
-           });
-        thisData.find(".total").html(_.sum(allTotalCart)+" грн");
+        
+        thisData.find(".tbodyForCart").append(buildCart(name,price,id,weightForCart,volumeForCart));
+        
+        setDataInCart(thisData);
+        
         thisData.find("#id"+id).find(".removeFromCart").data("thisCart",$(this).data("thisCart")).data("thisID",id).on("click",function()
             {
                 var allTotalCart=[];
-                var i = thisData;
-               // var thisID = $(this).data("thisID");                              
+                var allVolumeForCart=[];
+                var allWeightForCart=[];
+                var i = thisData;                                         
                 $(this).closest("tr").remove(); 
-
-                $(i).find(".price").each(function()
-           {
-               allTotalCart[allTotalCart.length] = $(this).html().split(' ')[0];  
-           });
-
-            $(i).find(".total").html(_.sum(allTotalCart)+" грн");
+                
+                setDataInCart(i);
+                
             if (i.find('.removeFromCart').length==0)
             {
                 i.find(".tbodyForCart").append($("<tr>").addClass('emptyCart').html("Корзина пустая"))
-                $(i).find(".total").html("0 грн");
+                $(i).find(".priceToCart").html("0 грн");
+                $(i).find(".volumeForCart").html("0 м3 объем");
+                $(i).find(".weightForCart").html("0 кг вес");
+                $(i).find(".deliveryForCart").html("0 грн доставка");
+               
             }
         });
     }
     else
     {
         var allTotalCart=[];
+        var allTotalCart=[];
+        var allVolumeForCart=[];
         var CartInput = thisData.find("#id"+id).find("input").val();
         var CartPrice = +thisData.find("#id"+id).find(".price").html().split(' ')[0];
 
@@ -472,20 +552,36 @@ function workInCart(thisData,id,price,name)
         CartPrice=CartPrice+price;
         thisData.find("#id"+id).find("input").val(CartInput);
         thisData.find("#id"+id).find(".price").html(CartPrice+" грн");
-        thisData.find(".price").each(function()
-        {
-            allTotalCart[allTotalCart.length] = $(this).html().split(' ')[0];
-
-        });   
-        thisData.find(".total").html(_.sum(allTotalCart)+" грн");  
-    };
-    
+        thisData.find("#id"+id).find(".price").attr("volumeForCart", CartInput*volumeForCart);
+        thisData.find("#id"+id).find(".price").attr("weightForCart", CartInput*weightForCart);
+       
+        setDataInCart(thisData);
+    };    
 }   
    
-   
+function setDataInCart(thisData)    // Заполняем корзину данными
+{
+        var allTotalCart=[];
+        var allVolumeForCart=[];
+        var allWeightForCart=[];
+    
+    thisData.find(".price").each(function()
+           {
+               allTotalCart[allTotalCart.length] = $(this).html().split(' ')[0];  
+               allVolumeForCart[allVolumeForCart.length]=$(this).attr("volumeForCart");
+               allWeightForCart[allWeightForCart.length]=$(this).attr("weightForCart");
+           });
+        
+        thisData.find(".priceToCart").html(_.sum(allTotalCart)+" грн");
+        thisData.find(".volumeForCart").html(_.sum(allVolumeForCart)+" м3 объем");
+        thisData.find(".weightForCart").html(_.sum(allWeightForCart)+" кг вес");
+        
+        thisData.find(".deliveryForCart").html(_.sum(allWeightForCart) < 10?"5 грн доставка":_.sum(allWeightForCart) < 50 ? "10 грн доставка" : _.sum(allWeightForCart) < 100?"20 грн доставка":"20 грн доставка")
+        thisData.find(".deliveryForCart").html(_.sum(allVolumeForCart) > 50?"50 грн доставка":thisData.find(".deliveryForCart").html());
+}
    
              
-function buildButtonForView()   // Кнопки варианта отображения данных и панель сортировки по любому полю товара 
+function buildButtonForView()   // Кнопки варианта отображения данных, панель сортировки по любому полю товара, фильтрация по бренду 
 {
     var spanViewList = $("<span>").addClass("glyphicon glyphicon-list").attr("aria-hidden","true").css({"margin-right":"0","font-weight":"normal"});
     var butonViewList = $("<button>").addClass("btn btn-info viewList").attr("aria-label","Left Align")
@@ -527,23 +623,40 @@ function buildButtonForView()   // Кнопки варианта отображ�
             .append(butonViewTable)
             .append(butonViewTile);
     
-    var divButton1 = $("<div>").addClass("col-lg-3 col-md-3 col-sm-4").css({"margin-top":"10px"})  
+    var divButton1 = $("<div>").addClass("col-lg-3 col-md-3 col-sm-3").css({"margin-top":"10px"})  
             .append(divForView1);  
-    var divButton2 = $("<div>").addClass("col-lg-3 col-md-3 col-sm-4")
+    var divButton2 = $("<div>").addClass("col-lg-3 col-md-3 col-sm-3")
             .append(selectForSort);       
     
     var divForView2 = $("<div>").addClass("btn-group-xs").css({"margin-bottom":"10px","margin-top":"10px"})  
             .append(butonSortDown)
             .append(butonSortUp);
     
-    var divButton3 = $("<div>").addClass("col-lg-2 col-md-3 col-sm-4").css({"margin-left":"-40px"})  
+    var divButton3 = $("<div>").addClass("col-lg-2 col-md-3 col-sm-3").css({"margin-left":"-40px"})  
             .append(divForView2);  
     
-    var divForButtonRow = $("<div>").addClass("row")
+    var inputForBrand = $("<input>").attr("type","text").attr("placeholder","Бренд").addClass("form-control inputForBrand").css({"width":"100px","height":"35px"});
+    var divForBrand = $("<div>").addClass("input-group").css({"display":"inline-block"})
+            .append(inputForBrand);
+    var labelForBrand = $("<label>").addClass("sr-only");
+    var divForBrand2 = $("<div>").addClass("form-group")
+            .append(labelForBrand)
+            .append(divForBrand);
+    
+    var buttonForBrand = $("<button>").attr("type","text").addClass("btn btn-info btn-sm choiceForBrand").html("Выбрать");
+    
+    var formForBrand = $("<div>").addClass("form-inline")
+            .append(divForBrand2)
+            .append(buttonForBrand);
+    
+    var divButton4 = $("<div>").addClass("col-lg-3 col-md-3 col-sm-3").css({"margin-left":"-40px"}) 
+            .append(formForBrand);    
+    
+     var divForButtonRow = $("<div>").addClass("row")
             .append(divButton1)
             .append(divButton2)
-            .append(divButton3);
-    
+            .append(divButton3)
+            .append(divButton4);
     return divForButtonRow;    
 }
     
@@ -593,8 +706,8 @@ function prepareHtmlElementsByTile(imageTile,priceTile,brandTile,descriptionTile
     var spanFooterName = $("<span>").addClass('nameofName').html('Товар: '+nameTile);
     var divaFooter = $("<div>").css({"max-height":"125px","overflow-y":"auto"})                
             .append(aFooter);
-    var spanFooterVolume = $("<span>").html("Объем: "+volumeTile);
-    var spanFooterWeight = $("<span>").html("Вес: "+weightTile);
+    var spanFooterVolume = $("<span>").addClass(".volumeForCart").attr("volumeForCart",volumeTile).html("Объем: "+volumeTile);
+    var spanFooterWeight = $("<span>").addClass(".weightForCart").attr("weightForCart",weightTile).html("Вес: "+weightTile);
     var spanFooterId = $("<span>").html("ИД: "+idTile);
     var divFooter = $("<div>").addClass("footer") 
             .append(spanFooterBrand)
@@ -691,7 +804,64 @@ function prepareHtmlElementsByList(id,brand,name,price,weight,volume,description
 
 
 
-    return ul4;
+    return ul4; 
 }
 
+function ajax(dataThis)
+{
+    
+    
+ $.ajax
+        ({
+            type: "POST",
+            url: dataThis.url,
+            dataType:"json",
+            data:{start:dataThis.start,count:dataThis.count,brand:dataThis.brand},           
+            context: this 
+        })         
+        .done(function(a) 
+        {        
+          
+            if (a.length == 0 || $.isArray(a)==false) // Checked of a wrong Ajax data
+            {
+                var notification = new NotificationFx // For Notification Alert
+                ({
+                    wrapper : document.body,
+                    message : '<span class="icon icon-megaphone"></span><p class="pStyle">Ошибка в массиве данных</p>',
+                    layout : 'bar',
+                    effect : 'slidetop',
+                    type : 'error',
+                    ttl : 60000000,
+                    onClose : function() { return false; },
+                    onOpen : function() { return false; }
+                });
+                    notification.show();
+                }
+            else
+            {
+                dataThis.dataFromAjax = a;                   
+                if (dataThis.currentView == "Tile") 
+                 buildDataByTile(dataThis,dataThis.cart); 
+                if (dataThis.currentView == "Table") 
+                 buildDataByTable(dataThis,dataThis.cart);
+                if (dataThis.currentView == "List") 
+                 buildDataByList(dataThis,dataThis.cart);
+            
+            }
+        }).fail(function()
+        {
+            var notification = new NotificationFx // Error: No Server
+            ({
+                wrapper : document.body,
+                message : '<span class="icon icon-megaphone"></span><p class="pStyle">Нет связи с сервером</p>',
+                layout : 'bar',
+                effect : 'slidetop',
+                type : 'error',
+                ttl : 60000000,
+                onClose : function() { return false; },
+                onOpen : function() { return false; }
+            });
+            notification.show(); 
+        });
+    }
 })();

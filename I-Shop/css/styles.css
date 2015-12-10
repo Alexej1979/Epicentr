@@ -4735,7 +4735,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .breadcrumb > li {
   display: inline-block;
 }
-.breadcrumb > li + li:before {
+.breadcrumb > li + li:before { 
   content: "/\00a0";
   padding: 0 5px;
   color: #cccccc;
@@ -4749,7 +4749,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   margin: 1em 0;
   border-radius: 5px;
 }
-.pagination > li {
+.pagination > li { 
   display: inline;
 }
 .pagination > li > a,
